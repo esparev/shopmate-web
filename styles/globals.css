@@ -1,3 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter:wght@400;500;600;700;900&family=Manrope:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .inter-regular {
+    @apply font-inter font-normal;
+  }
+  .inter-medium {
+    @apply font-inter font-medium;
+  }
+  .inter-semibold {
+    @apply font-inter font-semibold;
+  }
+  .inter-bold {
+    @apply font-inter font-bold;
+  }
+  .manrope-regular {
+    @apply font-manrope font-normal;
+  }
+  .manrope-medium {
+    @apply font-manrope font-medium;
+  }
+  .manrope-semibold {
+    @apply font-manrope font-semibold;
+  }
+  .manrope-bold {
+    @apply font-manrope font-bold;
+  }
+  .showcase-card {
+    @apply max-w-md flex flex-col gap-y-3 p-6 border-[0.5px] border-l-0 rounded-e-xl transition cursor-pointer;
+  }
+  .active-card {
+    @apply border-green-50 bg-white-10;
+  }
+  .inactive-card {
+    @apply border-transparent hover:border-gray-300;
+  }
+  .how-card {
+    @apply max-w-[432px] min-w-[352px] min-h-[172px] flex flex-col justify-center gap-y-3 p-8 border-[0.5px] border-gray-200 rounded-lg;
+  }
+  .footer-section {
+    @apply flex flex-col gap-y-3;
+  }
+  .footer-title {
+    @apply manrope-semibold uppercase;
+  }
+  .footer-list {
+    @apply flex flex-col gap-y-2;
+  }
+  .footer-item {
+    @apply inter-regular hover:underline;
+  }
+}

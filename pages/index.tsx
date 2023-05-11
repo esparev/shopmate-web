@@ -1,7 +1,26 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import {
+  CoinsIcon,
+  ContactlessPayIcon,
+  EyeScanIcon,
+  NavigationIcon,
+  NetworkIcon,
+  PhoneSignalIcon,
+  ScanBoxIcon,
+  NvidiaLogo,
+  PythonLogo,
+  TensorflowLogo,
+  Spinner,
+  LinkedInLogo,
+  DiscordLogo,
+  TwitterLogo,
+} from '@/components/Icons';
 
 export default function Home() {
+  const [activeCard, activateCard] = useState(1);
+
   return (
     <>
       <Head>
@@ -10,7 +29,304 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/icon.ico' />
       </Head>
-      <main></main>
+      <div>
+        <section className='h-screen'>
+          {/* Header */}
+          <header className='flex justify-between items-center px-40 py-8'>
+            {/* Logo */}
+            <a href='' className='flex items-center gap-x-3'>
+              <svg width='24' height='25' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M7.92356 12L7.34023 8.5H13.8063L12.6396 12H7.92356Z' fill='black' />
+                <path
+                  fillRule='evenodd'
+                  clipRule='evenodd'
+                  d='M10 20.5C15.5228 20.5 20 16.0228 20 10.5C20 4.97715 15.5228 0.5 10 0.5C4.47715 0.5 0 4.97715 0 10.5C0 16.0228 4.47715 20.5 10 20.5ZM5.5 6C5.22386 6 5 6.22386 5 6.5C5 6.77614 5.22386 7 5.5 7H6.07644L7.0068 12.5822C7.04699 12.8233 7.25558 13 7.5 13H13C13.2152 13 13.4063 12.8623 13.4743 12.6581L14.9743 8.15811C15.0252 8.00564 14.9996 7.83803 14.9056 7.70764C14.8116 7.57726 14.6607 7.5 14.5 7.5H7.17356L6.9932 6.4178C6.95301 6.17671 6.74442 6 6.5 6H5.5ZM8 14C7.44772 14 7 14.4477 7 15C7 15.5523 7.44772 16 8 16C8.55228 16 9 15.5523 9 15C9 14.4477 8.55228 14 8 14ZM13 14C12.4477 14 12 14.4477 12 15C12 15.5523 12.4477 16 13 16C13.5523 16 14 15.5523 14 15C14 14.4477 13.5523 14 13 14Z'
+                  fill='black'
+                />
+              </svg>
+              <p className='font-dela'>ShopMate</p>
+            </a>
+            {/* Buttons */}
+            <div className='flex items-center gap-x-5'>
+              <a href='' className='inter-regular'>
+                Iniciar sesión
+              </a>
+              <a href='' className='inter-semibold bg-green-100 px-5 py-2 rounded-full'>
+                Comenzar
+              </a>
+            </div>
+          </header>
+          {/* Main */}
+          <main className='h-4/5 flex flex-col items-center justify-between'>
+            <div className='flex flex-col items-center gap-y-5 mt-28'>
+              <div className='flex flex-col items-center'>
+                <p className='manrope-bold text-6xl'>Simplifica tus compras</p>
+                <div className='w-full flex gap-x-1 justify-center'>
+                  <p className='manrope-bold text-6xl'>con</p>
+                  <div className='relative min-w-[400px]'>
+                    <p className='absolute font-dela text-6xl z-10'>ShopMate</p>
+                    <svg
+                      className='absolute'
+                      width='400'
+                      height='70'
+                      viewBox='0 0 400 70'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'>
+                      <path
+                        d='M10 60C25.8435 45.9834 41.1642 30.4429 57.2906 17.1093C58.1365 16.4099 66.5719 8.59698 68.325 10.2218C70.3593 12.1072 69.5633 33.2751 69.7888 36.4414C70.0091 39.5346 69.5783 53.3867 72.6037 55.0691C77.6927 57.8991 86.9012 39.3813 89.4932 35.8936C94.4232 29.2596 99.8916 22.7739 106.157 18.6747C109.761 16.3174 108.692 25.3942 108.972 28.3016C110.321 42.2806 110.803 56.5178 122.878 51.0775C135.138 45.5541 146.349 36.1388 157.501 27.3624C162.967 23.0617 164.567 20.0448 165.271 28.8495C165.895 36.659 166.695 45.1307 169.099 52.3298C171.759 60.2953 176.585 55.3685 180.584 52.1732C188.456 45.8835 196.184 39.0377 204.567 34.0934C210.191 30.776 208.234 37.5197 209.746 43.0942C215.266 63.4369 226.811 47.4991 235.643 39.9635C243.057 33.6383 252.114 24.3837 261.09 22.9011C264.871 22.2767 267.341 35.0206 268.859 38.3981C270.691 42.4732 272.264 46.5154 276.066 45.1291C288.83 40.4748 300.568 30.611 312.772 23.8403C317.784 21.0597 320.851 18.7416 323.018 26.3449C324.187 30.4451 326.171 41.4443 329.943 42.7028C340.588 46.2547 349.749 23.8586 359.612 22.6663C363.119 22.2424 361.185 50.4554 369.746 41.6854C375.098 36.2032 379.298 32.0892 385.397 29.006C387.538 27.9236 388.466 27.7479 389 24.7795'
+                        stroke='#4EE062'
+                        strokeWidth='20'
+                        strokeLinecap='round'
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <p className='w-3/5 inter-regular text-center text-carbon-200'>
+                Di adiós a las largas filas para pagar y las molestas innecesarias con nuestro carrito inteligente.
+              </p>
+              <div className='flex gap-x-5'>
+                <Image
+                  className='h-8 w-auto'
+                  src='/static/google-play-badge.png'
+                  alt='Google Play Badge'
+                  height={108}
+                  width={170}
+                />
+                <Image
+                  className='h-8 w-auto'
+                  src='/static/app-store-badge.png'
+                  alt='App Store Badge'
+                  height={108}
+                  width={160}
+                />
+              </div>
+            </div>
+            <div className='flex flex-col items-center gap-y-5'>
+              <p className='inter-medium'>Desarrollado con las siguientes tecnologías</p>
+              <div className='flex items-center gap-x-5'>
+                <NvidiaLogo />
+                <TensorflowLogo />
+                <PythonLogo />
+              </div>
+            </div>
+          </main>
+        </section>
+        {/* Showcase */}
+        <section className='h-screen bg-carbon-100'>
+          <div className='flex flex-col gap-y-3 py-16 px-40'>
+            <h2 className='manrope-bold text-3xl text-green-100'>Compra más rápido, con menos estrés.</h2>
+            <p className='inter-medium text-gray-300'>
+              El compañero de compras que necesitas más inteligente y eficiente, mantente organizado, compra sin
+              preocupaciones.
+            </p>
+          </div>
+          <div className='flex items-center'>
+            <Image
+              className='h-[600px] w-auto'
+              src='/static/screenshot.png'
+              alt='Screenshot'
+              height={1130}
+              width={1444}
+            />
+            {/* Cards */}
+            <div className='flex flex-col gap-y-5'>
+              {/* Card 1 */}
+              <div
+                onClick={() => activateCard(1)}
+                className={`showcase-card ${activeCard === 1 ? 'active-card' : 'inactive-card'}`}>
+                <div className='flex items-center gap-x-2'>
+                  <ScanBoxIcon activeCard={activeCard} />
+                  <h3 className={`manrope-semibold text-lg ${activeCard === 1 ? 'text-green-100' : 'text-gray-300'}`}>
+                    Escaneo automático
+                  </h3>
+                </div>
+                <p className={`inter-regular ${activeCard === 1 ? 'text-white-100' : 'text-gray-300'}`}>
+                  Introduce cualquier artículo al carrito y se agregará automáticamente a tu lista de compras.
+                </p>
+              </div>
+              {/* Card 2 */}
+              <div
+                onClick={() => activateCard(2)}
+                className={`showcase-card ${activeCard === 2 ? 'active-card' : 'inactive-card'}`}>
+                <div className='flex items-center gap-x-2'>
+                  <CoinsIcon activeCard={activeCard} />
+                  <h3 className={`manrope-semibold text-lg ${activeCard === 2 ? 'text-green-100' : 'text-gray-300'}`}>
+                    Cuenta automatizada
+                  </h3>
+                </div>
+                <p className={`inter-regular ${activeCard === 2 ? 'text-white-100' : 'text-gray-300'}`}>
+                  ShopMate hará la cuenta de tus productos por ti en tiempo real.
+                </p>
+              </div>
+              {/* Card 3 */}
+              <div
+                onClick={() => activateCard(3)}
+                className={`showcase-card ${activeCard === 3 ? 'active-card' : 'inactive-card'}`}>
+                <div className='flex items-center gap-x-2'>
+                  <ContactlessPayIcon activeCard={activeCard} />
+                  <h3 className={`manrope-semibold text-lg ${activeCard === 3 ? 'text-green-100' : 'text-gray-300'}`}>
+                    Pago automático
+                  </h3>
+                </div>
+                <p className={`inter-regular ${activeCard === 3 ? 'text-white-100' : 'text-gray-300'}`}>
+                  Simplemente salga del establecimiento y el pago se realizará automáticamente a tu cuenta.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* How */}
+        <section className='flex flex-col items-center my-16 gap-y-12'>
+          <div className='flex flex-col items-center gap-y-3'>
+            <h2 className='manrope-bold text-3xl'>Como lo hacemos</h2>
+            <p className='w-3/4 inter-medium text-center text-gray-300'>
+              Lo esencial para que pueda funcionar ShopMate según tus necesidades.
+            </p>
+          </div>
+          {/* Cards */}
+          <div className='w-3/5 flex flex-wrap justify-center gap-16'>
+            <div className='how-card'>
+              <EyeScanIcon />
+              <h3 className='manrope-semibold'>Vision computacional</h3>
+              <p className='inter-regular text-gray-300'>Eliminamos la necesidad de escanear o pagar manualmente.</p>
+            </div>
+            <div className='how-card'>
+              <NetworkIcon />
+              <h3 className='manrope-semibold'>Sensores integrados</h3>
+              <p className='inter-regular text-gray-300'>
+                Detección precisa y actualización en tiempo real del costo total de los artículos agregados al carrito.
+              </p>
+            </div>
+            <div className='how-card'>
+              <PhoneSignalIcon />
+              <h3 className='manrope-semibold'>Pago móvil</h3>
+              <p className='inter-regular text-gray-300'>
+                Pague directamente desde el carrito, sin la necesidad de un proceso de pago por separado.
+              </p>
+            </div>
+            <div className='how-card'>
+              <NavigationIcon />
+              <h3 className='manrope-semibold'>Navegación fácil</h3>
+              <p className='inter-regular text-gray-300'>
+                Ayuda para encontrar productos de forma rápida y sencilla, lo que reduce la frustración.
+              </p>
+            </div>
+          </div>
+        </section>
+        {/* Get Started */}
+        <section className='relative flex flex-col items-center bg-carbon-100 overflow-hidden'>
+          <div className='w-[25%] max-w-[400px] flex flex-col items-center gap-y-3 py-16 z-10'>
+            <h2 className='manrope-bold text-3xl text-white-100'>Empieza ahora</h2>
+            <p className='inter-medium text-center text-gray-200'>
+              Toma 30 segundos en registrarse. Descarga la aplicación y crea una cuenta hoy. Es hora de comprar con
+              confianza.
+            </p>
+            <a href='' className='inter-semibold bg-green-100 px-5 py-2 rounded-full'>
+              Comenzar
+            </a>
+          </div>
+          <div className='absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'>
+            <Spinner />
+          </div>
+        </section>
+        {/* Footer */}
+        <footer className='px-24 py-8'>
+          <div className='flex justify-between items-start'>
+            {/* Logo */}
+            <a href='' className='flex items-center gap-x-3'>
+              <svg width='24' height='25' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M7.92356 12L7.34023 8.5H13.8063L12.6396 12H7.92356Z' fill='black' />
+                <path
+                  fillRule='evenodd'
+                  clipRule='evenodd'
+                  d='M10 20.5C15.5228 20.5 20 16.0228 20 10.5C20 4.97715 15.5228 0.5 10 0.5C4.47715 0.5 0 4.97715 0 10.5C0 16.0228 4.47715 20.5 10 20.5ZM5.5 6C5.22386 6 5 6.22386 5 6.5C5 6.77614 5.22386 7 5.5 7H6.07644L7.0068 12.5822C7.04699 12.8233 7.25558 13 7.5 13H13C13.2152 13 13.4063 12.8623 13.4743 12.6581L14.9743 8.15811C15.0252 8.00564 14.9996 7.83803 14.9056 7.70764C14.8116 7.57726 14.6607 7.5 14.5 7.5H7.17356L6.9932 6.4178C6.95301 6.17671 6.74442 6 6.5 6H5.5ZM8 14C7.44772 14 7 14.4477 7 15C7 15.5523 7.44772 16 8 16C8.55228 16 9 15.5523 9 15C9 14.4477 8.55228 14 8 14ZM13 14C12.4477 14 12 14.4477 12 15C12 15.5523 12.4477 16 13 16C13.5523 16 14 15.5523 14 15C14 14.4477 13.5523 14 13 14Z'
+                  fill='black'
+                />
+              </svg>
+              <p className='font-dela'>ShopMate</p>
+            </a>
+            {/* Sections */}
+            <div className='flex gap-x-20'>
+              {/* Company */}
+              <div className='footer-section'>
+                <h4 className='footer-title'>Empresa</h4>
+                <ul className='footer-list'>
+                  <li className='footer-item'>
+                    <a href=''>Acerca de</a>
+                  </li>
+                  <li className='footer-item'>
+                    <a href=''>Empleos</a>
+                  </li>
+                  <li className='footer-item'>
+                    <a href=''>Blog</a>
+                  </li>
+                  <li className='footer-item'>
+                    <a href=''>Socios</a>
+                  </li>
+                </ul>
+              </div>
+              {/* Help Center */}
+              <div className='footer-section'>
+                <h4 className='footer-title'>Centro de ayuda</h4>
+                <ul className='footer-list'>
+                  <li className='footer-item'>
+                    <a href=''>Discord</a>
+                  </li>
+                  <li className='footer-item'>
+                    <a href=''>Twitter</a>
+                  </li>
+                  <li className='footer-item'>
+                    <a href=''>Facebook</a>
+                  </li>
+                  <li className='footer-item'>
+                    <a href=''>Contactanos</a>
+                  </li>
+                </ul>
+              </div>
+              {/* Legal */}
+              <div className='footer-section'>
+                <h4 className='footer-title'>Legal</h4>
+                <ul className='footer-list'>
+                  <li className='footer-item'>
+                    <a href=''>Privacidad</a>
+                  </li>
+                  <li className='footer-item'>
+                    <a href=''>Términos</a>
+                  </li>
+                </ul>
+              </div>
+              {/* Download */}
+              <div className='footer-section'>
+                <h4 className='footer-title'>Descargar</h4>
+                <ul className='footer-list'>
+                  <li className='footer-item'>
+                    <a href=''>iOS</a>
+                  </li>
+                  <li className='footer-item'>
+                    <a href=''>Android</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className='flex items-center justify-between py-5'>
+            <p className='footer-item'>© 2023 ShopMate. Derechos reservados.</p>
+            {/* Socials */}
+            <div className='flex items-center gap-x-10'>
+              <a href='https://linkedin.com/in/esparev' target='_blank' rel='noopener noreferer'>
+                <LinkedInLogo />
+              </a>
+              <a href='https://github.com/esparev' target='_blank' rel='noopener noreferer'>
+                <DiscordLogo />
+              </a>
+              <a href='https://twitter.com/esparev' target='_blank' rel='noopener noreferer'>
+                <TwitterLogo />
+              </a>
+            </div>
+          </div>
+        </footer>
+      </div>
     </>
   );
 }

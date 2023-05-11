@@ -1,7 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  content: ['./components/**/*.{js,jsx,ts,tsx}', './containers/**/*.{js,jsx,ts,tsx}'],
+  content: ['./pages/**/*.{js,jsx,ts,tsx}', './components/**/*.{js,jsx,ts,tsx}', './containers/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       fontFamily: {
@@ -37,6 +37,9 @@ module.exports = {
         8: '32px',
         9: '36px',
         10: '40px',
+      },
+      animation: {
+        'spin-slower': 'spin 6s linear infinite',
       },
     },
   },
